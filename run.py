@@ -32,3 +32,15 @@ df.shape
 #Basic information of the data
 df.date = pd.to_datetime(df.date)
 df.date.dtype
+
+start_time = min(df.date).strftime('%d %B %Y')
+end_time = max(df.date).strftime('d %B %Y')
+no_of_horses = df.horse_id.nunique()
+no_of_races = df.race_id.nunique()
+
+print(f'The dataset was collected from {start_time} to {end_time}, which contains information about {no_of_horses} horses and {no_of_races} races. ')
+
+#drop the unnecessary columns
+df = df.drop(columns=['horse_id','date'])
+df.head()
+df.columns

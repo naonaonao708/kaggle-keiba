@@ -44,3 +44,10 @@ print(f'The dataset was collected from {start_time} to {end_time}, which contain
 df = df.drop(columns=['horse_id','date'])
 df.head()
 df.columns
+
+from time import time
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from imblean.under_sampling import RandomUnderSampler
+from imblean.over_sampling import SMOTE

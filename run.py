@@ -49,5 +49,7 @@ from time import time
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from imblean.under_sampling import RandomUnderSampler
-from imblean.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.over_sampling import SMOTE
+from sklearn.neighbors import KNeighborsClassifier
+import lightgbm as lgb

@@ -53,3 +53,27 @@ from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import SMOTE
 from sklearn.neighbors import KNeighborsClassifier
 import lightgbm as lgb
+from sklearn.metrics import precision_score, classification_report, confusion_matrix
+
+#Extract the last race data for model testing
+last_raceid = max(df.race_id)
+last_raceid
+
+last_race = df[df.race_id == last_raceid]
+last_race
+
+new_data = df[:75696]
+new_data = new_data.drop(columns='race_id')
+new_data.tail()
+
+new_data.shape
+
+#Distribution of labels
+plt.figure(figsize=(6,4))
+sns.countplot(data=new_data, x='won')
+plt.title('Number of labels by Class')
+X = new_data.drop(columns='won')
+y = new_data['won']
+
+y.value_counts()
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)

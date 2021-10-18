@@ -77,3 +77,14 @@ y = new_data['won']
 
 y.value_counts()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
+
+k_range = range(1,10)
+scores = {}
+scores_list = []
+
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train, y_train)
+    y_pred = knn.predict(X_test)
+    scores[k] = precision_score(y_test, y_pred)
+    scores_list.append(precision_score(y_test, y_pred))

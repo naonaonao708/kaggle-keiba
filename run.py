@@ -88,3 +88,6 @@ for k in k_range:
     y_pred = knn.predict(X_test)
     scores[k] = precision_score(y_test, y_pred)
     scores_list.append(precision_score(y_test, y_pred))
+
+import operator
+max(scores.items()), key=operator.itemgetter(1)

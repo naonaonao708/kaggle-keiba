@@ -90,4 +90,10 @@ for k in k_range:
     scores_list.append(precision_score(y_test, y_pred))
 
 import operator
-max(scores.items()), key=operator.itemgetter(1)
+max(scores.items(), key=operator.itemgetter(1))
+
+plt.plot(k_range, scores_list)
+plt.xlabel('Value of K for KNN')
+plt.ylabel('precision_score of the positive class')
+plt.title('Original Data')
+#error don't make graph

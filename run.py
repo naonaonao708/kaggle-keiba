@@ -96,4 +96,13 @@ plt.plot(k_range, scores_list)
 plt.xlabel('Value of K for KNN')
 plt.ylabel('precision_score of the positive class')
 plt.title('Original Data')
-#error don't make graph
+
+start = time()
+
+knn = KNeighborsClassifier(n_neighbors=8)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+
+end = time()
+running_time = end - start
+print('time cost: %.5f sec' %running_time)

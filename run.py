@@ -106,3 +106,5 @@ y_pred = knn.predict(X_test)
 end = time()
 running_time = end - start
 print('time cost: %.5f sec' %running_time)
+
+print(classification_report(y_test, y_pred))

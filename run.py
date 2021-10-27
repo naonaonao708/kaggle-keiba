@@ -108,3 +108,16 @@ running_time = end - start
 print('time cost: %.5f sec' %running_time)
 
 print(classification_report(y_test, y_pred))
+
+labels = ['lose', 'win']
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(cm)
+plt.title('confusion_matrix')
+fig.colorbar(cax)
+ax.set_xticklabels([''] + labels)
+ax.set_yticklabels([''] + labels)
+plt.xlabel('Predicted')
+plt.ylabel('True')

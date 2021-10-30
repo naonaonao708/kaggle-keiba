@@ -121,3 +121,5 @@ ax.set_xticklabels([''] + labels)
 ax.set_yticklabels([''] + labels)
 plt.xlabel('Predicted')
 plt.ylabel('True')
+
+lgb.plot_importance(clf_sm, max_num_features=10)
